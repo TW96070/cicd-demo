@@ -1,10 +1,7 @@
-console.log("=== 自動テストを開始します ===");
-const status = true; 
+// test.js
+const someFunction = require('./index'); // 例
 
-if (status) {
-    console.log("✅ すべてのテストに合格しました！");
-    process.exit(0); // 成功コード
-} else {
-    console.error("❌ テストが失敗しました");
-    process.exit(1); // 失敗コード
-}
+test('ステータスが正常であること', () => {
+    const status = someFunction();
+    expect(status).toBe(true); // 判定はJestに任せる（process.exitは書かない）
+});
